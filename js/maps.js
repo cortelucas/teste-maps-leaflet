@@ -10,9 +10,7 @@ document.addEventListener('DOMContentLoaded', function (e) { //executa o código
 
     let optionsMap = {// variável optionsMap, que recebe um objeto
         center: [-21.511263, -51.434978],
-        zoom: 16,
-        minZoom:16, 
-        maxZoom:9
+        zoom: 15
     }
 
     //criando o mapa
