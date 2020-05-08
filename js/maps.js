@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function (e) { //executa o código
 
     //criando o mapa
     let map = new L.map(target, optionsMap);
+    map.doubleClickZoom.disable();
 
     //adicionar uma camada de bloco do OpenStreetMap
     let basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
