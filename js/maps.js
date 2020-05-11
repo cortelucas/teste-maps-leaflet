@@ -54,15 +54,15 @@ document.addEventListener('DOMContentLoaded', function (e) { //executa o código
 
             let strControlador = "";
             if (arrayPoi[i].controlador == null) {
-                strControlador = '<p class="fa fa-cog"></p><a href ="/cruzamentos/' + arrayPoi[i].id + '">' + "<b> Configurar Controlador</b></a></p>"
+                strControlador = '<p class="fa fa-cog"></p><a class="config" href ="/cruzamentos/' + arrayPoi[i].id + '">' + "<b> Configurar Controlador</b></a></p>"
             } else {
                 strControlador = '<p><b>Controlador: </b>' + arrayPoi[i].controlador +
                     '<p><b>Fases: </b>' + arrayPoi[i].fases +
                     '<p><b>Anel: </b>' + arrayPoi[i].anel +
                     '<a href ="/cruzamentos/' + arrayPoi[i].id + '">' + "Ver Detalhes</a>"
-            } 
-            
-            let contentString = '<div class = "poi-info-window gm-style" id="iw-container">' +
+            }
+
+            let contentString = '<div class = "poi-info-window " id="iw-container">' +
                 '<div id="content">' +
                 '<div id="info">' +
                 '</div>' +
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function (e) { //executa o código
             marker.bindPopup(contentString);
             marker.addTo(map);
         }
-    };
+    }
 
     L.DomEvent.on(map, 'click', function (e) {
         tempPosition = e.latlng;
@@ -98,8 +98,9 @@ document.addEventListener('DOMContentLoaded', function (e) { //executa o código
         };
 
         let nome = prompt('Digite o seu cruzamento: ');
-        if (nome != null) {
-
+        if (nome == null || nome.length <= 3) {
+            alert('O nome do seu cruzamento esta vazio ou com menos de 3 caracteres.');
+        }else {
             poi.nome = nome;
             poi.id = geraID();
             poi.lat = tempPosition.lat;
@@ -108,9 +109,8 @@ document.addEventListener('DOMContentLoaded', function (e) { //executa o código
             arrayPoi.push(poi);
             percorreArray();
             console.log(poi);
-
         }
-    };
+    }
 
     function geraID() {
         return 'xxxxxxx'.replace(/[xy]/g, function(c) {
