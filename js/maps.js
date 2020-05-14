@@ -54,7 +54,9 @@ document.addEventListener('DOMContentLoaded', function (e) { //executa o código
 
             let strControlador = "";
             if (arrayPoi[i].controlador == null) {
-                strControlador = '<p class="fa fa-cog"></p><a class="config" href ="/cruzamentos/' + arrayPoi[i].id + '">' + "<b> Configurar Controlador</b></a></p>"
+                strControlador = '<div class="center">' +
+                                    '<p class="fa fa-cog"></p><a class="link" href ="/cruzamentos/' + arrayPoi[i].id + '">' + "<strong> Configurar Controlador</strong></a></p>" +
+                                "</div>"
             } else {
                 strControlador = '<p><b>Controlador: </b>' + arrayPoi[i].controlador +
                     '<p><b>Fases: </b>' + arrayPoi[i].fases +
@@ -62,16 +64,13 @@ document.addEventListener('DOMContentLoaded', function (e) { //executa o código
                     '<a href ="/cruzamentos/' + arrayPoi[i].id + '">' + "Ver Detalhes</a>"
             }
 
-            let contentString = '<div class = "poi-info-window " id="iw-container">' +
-                '<div id="content">' +
-                '<div id="info">' +
-                '</div>' +
-                '<header class="iw-title"><h4 id="firstHeading" class="firstHeading">' + arrayPoi[i].nome + '</h4>' +
+            let contentString = '<div class="body-content">' +
+                '<header class="title"><h4 id="firstHeading" class="firstHeading">' + arrayPoi[i].nome + '</h4>' +
                 '</header>' + strControlador +
-                '<div id="bodyContent">' +
-                '<p><b>ID: </b>' + arrayPoi[i].id +
-                '<p><b>Latitude: </b>' + arrayPoi[i].lat.toFixed(3) +
-                '<p><b>Longitude: </b>' + arrayPoi[i].lng.toFixed(3) +
+                '<div class="text">' +
+                    '<p><b>ID: </b>' + arrayPoi[i].id +
+                    '<p><b>Latitude: </b>' + arrayPoi[i].lat.toFixed(3) +
+                    '<p><b>Longitude: </b>' + arrayPoi[i].lng.toFixed(3) +
                 '</div>';
 
             let marker = L.marker(tempPosition,

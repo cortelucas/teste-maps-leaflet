@@ -1,7 +1,7 @@
 /*Imports*/
 @import 'reset.css';
 @import 'https://unpkg.com/leaflet@1.6.0/dist/leaflet.css';
-@import 'contentString.css';
+@import 'popup.css';
 
 /*Geral*/
 body{
